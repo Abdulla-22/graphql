@@ -1,0 +1,85 @@
+body {
+    font-family: Graphik-Medium, sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url(isometric-tech-futuristic-background_52683-74303.avif);
+    background-color: aqua;
+}
+
+#login-block{
+    max-width: 500px;
+    width: 100%;
+    max-height: 500px;
+    height: 100%;
+    background-color: #d42a2a36;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    margin: 0;
+    border-radius: 20px;
+
+}
+
+#LoginText {
+    border: 40cm;
+    margin:auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow:rgba(0, 0, 0, 0.854);
+    
+}
+button{
+    padding: 10px;
+    background-color: rgba(44, 41, 41, 0.382);
+    margin-bottom: 20px;
+    box-shadow:rgba(0, 0, 0, 0.854);
+    transition: all 0.5s;
+}
+
+button:hover {
+    background-color: rgba(86, 80, 80, 0.382);
+}
+
+#notification {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    display: none;
+    z-index: 1000;
+
+}
+
+#notification.success {
+    background-color: #4caf50; /* Green for success */
+    color: white;
+}
+
+#notification.error {
+    background-color: #f44336; /* Red for errors */
+    color: white;
+}
+
+.hidden {
+    display: none;
+}

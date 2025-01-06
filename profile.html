@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="CSS/styleProfile.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="welcomeName"></h1>
+        <button id="logout">Logout</button>
+    </header>
+
+    <main>
+        <!-- User Info Section -->
+        <section id="user-info">
+            <h2>User Information</h2>
+            <p id="Username"><strong>Username: </strong> </p>
+            <p id="UserID">ID: </p>
+            <p id="Campus">Campus Location: </p>
+            <p id="userEmail">Email: </p>
+            <p id="createdAt">Created at: </p>
+            <p id="updatedAt">Updated at: </p>
+            <p id="githubId">Github Id: </p>
+        </section>
+
+        <section id="auditRatio">
+            <h2>Audit Ratio</h2>
+            <div class="graph">
+                <svg width="400" height="200" style="align-self: center;">
+                    <circle cx="150" cy="100" r="80" style="fill:green;"></circle>
+                </svg>
+            </div>
+            <p id="auditRatio">Audit Ratio: </p>
+            <p id="auditRatioUP">Audit up: </p>
+            <p id="auditRatioDOWN">Audit down: </p>
+        </section>
+
+        <!-- Statistics Section -->
+        <section id="stats">
+            <h2>Your Statistics</h2>
+            <div class="graph">
+                <svg width="400" height="200">
+                    <rect width="300" height="100" style="fill:blue;"></rect>
+                </svg>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="/JS/profile.js"></script>
+    <script type="module" src="/JS/processInfo.js"></script>
+</body>
+
+</html>
