@@ -9,7 +9,10 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: url(isometric-tech-futuristic-background_52683-74303.avif);
+    background-image: url(wallpaperflare.com_wallpaper.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
     background-color: aqua;
 }
 
@@ -18,7 +21,7 @@ body {
     width: 100%;
     max-height: 500px;
     height: 100%;
-    background-color: #d42a2a36;
+    background-color: #6f3cbd7c;
     display: flex;
     justify-content: center;
     align-items: center;

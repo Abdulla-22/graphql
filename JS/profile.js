@@ -1,4 +1,4 @@
-import { logUserInfo, logTransactionInfo, logProgressInfo, logObjectInfo } from "./processInfo.js";
+import { logUserInfo, finshedProject, logObjectInfo, auditRatio, toFinshProject } from "./processInfo.js";
 
 document.getElementById("logout").addEventListener("click", logout);
 
@@ -16,6 +16,7 @@ async function extractInfo() {
   // If jwt is not present, redirect to login page
   if (!jwt) {
     window.location.href = "index.html";
+    return;
   }
 
   const query = `
@@ -27,9 +28,24 @@ async function extractInfo() {
     lastName
     email
     campus
-    createdAt
-    updatedAt
     githubId
+    transactions(
+      order_by: { amount: desc }
+      where: { type: { _eq: "level" } }
+      limit: 1
+    ) {
+      type
+      amount
+      progress {
+        path
+        createdAt
+        updatedAt
+      }
+      object {
+        name
+        type
+      }
+    }
     NotFinshProjects: progresses(
       where: {object: {type: {_eq: "project"}}, isDone: {_eq: false}}
     ) {
@@ -50,6 +66,7 @@ async function extractInfo() {
       grade
       path
       createdAt
+      updatedAt
       object {
         name
         type
@@ -106,8 +123,9 @@ async function extractInfo() {
     }
 
     logUserInfo(data);
-    logTransactionInfo(data);
-    logProgressInfo(data);
+    auditRatio(data);
+    toFinshProject(data);
+    finshedProject(data);
     logObjectInfo(data);
 
   } catch (error) {
