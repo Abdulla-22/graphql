@@ -9,11 +9,10 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: url(wallpaperflare.com_wallpaper.jpg);
-    background-attachment: fixed;
+    background-image: url(wallpaperflare.com_wallpaper1.jpg);
     background-size: cover;
     background-position: center;
-    background-color: aqua;
+    background-color: #6f3cbd7c;
 }
 
 #login-block{
@@ -21,7 +20,7 @@ body {
     width: 100%;
     max-height: 500px;
     height: 100%;
-    background-color: #6f3cbd7c;
+    background-color: #38135eaf;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,12 +73,12 @@ button:hover {
 }
 
 #notification.success {
-    background-color: #4caf50; /* Green for success */
+    background-color: #4caf50; 
     color: white;
 }
 
 #notification.error {
-    background-color: #f44336; /* Red for errors */
+    background-color: #f44336; 
     color: white;
 }
 
