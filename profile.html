@@ -21,7 +21,7 @@
             <div class="user-info-container">
                 <div class="user-details">
                     <p id="FullName">Full Name: </p>
-                    <p id="Username"><strong>Username: </strong></p>
+                    <p id="Username">Username: </p>
                     <p id="userEmail">Email: </p>
                     <p id="Campus">Campus Location: </p>
                     <p id="userLevel">Level: </p>
@@ -30,40 +30,33 @@
             </div>
         </section>
 
-        <section id="finished-projects">
-            <h2>Finished Projects</h2>
-            <table style="width: 100%; border-collapse: collapse;">
-                <thead>
-                    <tr>
-                        <th>Project Name</th>
-                        <th>Start Date</th>
-                        <th>Finish Date</th>
-                        <th>Time It Took</th>
-                    </tr>
-                </thead>
-                <tbody id="project-finished-table-body">
-                </tbody>
-            </table>
-        </section>
-
-
         <section id="project-to-finsh">
             <h2>Project working on</h2>
 
         </section>
 
+        <section id="projects-by-time">
+            <h2>Projects by Time</h2>
+            <div id="graph-container">
+                <svg viewBox="0 0 400 300">
+                </svg>
+            </div>
+        </section>
+
+
+
         <!-- Audit section -->
-        <section id="auditRatio">
+        <!-- <section id="auditRatio">
             <h2>Audit Ratio</h2>
             <div id="graph-container">
                 <svg class="xp-svg" viewBox="0 0 100 20" preserveAspectRatio="none">
                     <rect class="xp-bar-xp-up" id="upXp" x="0" y="0" width="50" height="20" fill="green" />
-                    <rect class="xp-bar-xp-down" id="downXp" x="50" y="0" width="50" height="20" fill="blue" />
-                    <!-- Scale Line -->
-                    <line x1="0" y1="20" x2="100" y2="20" stroke="black" stroke-width="2"></line>
+                    <rect class="xp-bar-xp-down" id="downXp" x="50" y="0" width="50" height="20" fill="blue" /> -->
+        <!-- Scale Line -->
+        <!-- <line x1="0" y1="20" x2="100" y2="20" stroke="black" stroke-width="2"></line> -->
 
-                    <!-- Ticks and Labels -->
-                    <text x="2" y="18" font-size="3" text-anchor="middle">0</text>
+        <!-- Ticks and Labels -->
+        <!-- <text x="2" y="18" font-size="3" text-anchor="middle">0</text>
                     <text x="10" y="18" font-size="3" text-anchor="middle">10</text>
                     <text x="20" y="18" font-size="3" text-anchor="middle">20</text>
                     <text x="30" y="18" font-size="3" text-anchor="middle">30</text>
@@ -77,25 +70,11 @@
                 </svg>
             </div>
 
-            <div id="key-map" style="margin-top: 20px; font-family: Arial, sans-serif;">
-                <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <div style="width: 20px; height: 20px; background-color: green; margin-right: 10px;"></div>
-                    <span>Audit Up</span>
-                </div>
-                <div style="display: flex; align-items: center;">
-                    <div style="width: 20px; height: 20px; background-color: blue; margin-right: 10px;"></div>
-                    <span>Audit Down</span>
-                </div>
-            </div>
-
-            <p id="auditRatioNumber">Audit Ratio: </p>
-            <p id="auditRatioUP">Audit up: </p>
-            <p id="auditRatioDOWN">Audit down: </p>
-        </section>
+        </section> -->
 
         <!-- Graph section -->
         <section id="stats">
-            <h2>Your Statistics</h2>
+            <h2>Audit Ratio</h2>
             <div id="graph-container">
                 <svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet">
                     <circle id="AuditUp" cx="150" cy="150" r="100" fill="none" stroke="green" stroke-width="40"
@@ -112,8 +91,40 @@
                         <tspan dy="7">Audit Ratio</tspan>
                         <tspan id="ratioNumber" x="150" dy="20"></tspan>
                     </text>
+
+
                 </svg>
+                <div id="key-map" style="margin-top: 20px; font-family: Arial, sans-serif;">
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <div style="width: 20px; height: 20px; background-color: green; margin-right: 10px;"></div>
+                        <span>Audit Up</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <div style="width: 20px; height: 20px; background-color: blue; margin-right: 10px;"></div>
+                        <span>Audit Down</span>
+                    </div>
+                </div>
             </div>
+
+            <p id="auditRatioNumber">Audit Ratio: </p>
+            <p id="auditRatioUP">Audit up: </p>
+            <p id="auditRatioDOWN">Audit down: </p>
+        </section>
+
+        <section id="finished-projects">
+            <h2>Finished Projects</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Start Date</th>
+                        <th>Finish Date</th>
+                        <th>Time It Took</th>
+                    </tr>
+                </thead>
+                <tbody id="project-finished-table-body">
+                </tbody>
+            </table>
         </section>
     </main>
 
