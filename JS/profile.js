@@ -1,4 +1,4 @@
-import { exGain, logUserInfo, finshedProject, auditRatio, toFinshProject } from "./processInfo.js";
+import { exGain, logUserInfo, finshedProject, auditRatio, toFinshProject, finshedProjectXp } from "./processInfo.js";
 
 document.getElementById("logout").addEventListener("click", logout);
 
@@ -154,8 +154,9 @@ async function extractInfo() {
     logUserInfo(data);
     auditRatio(data);
     toFinshProject(data);
-    finshedProject(data);
+    // finshedProject(data);
     exGain(data);
+    finshedProjectXp(data);
 
   } catch (error) {
     console.log(error);

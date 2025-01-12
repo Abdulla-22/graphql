@@ -147,6 +147,49 @@ export function finshedProject(data) {
     }
 }
 
+export function finshedProjectXp(data) {
+    var finshedProject = data.data.user[0].projectEx;
+    // console.log("Finished Projects: ", finshedProject);
+    console.log("Finished Projects: ", finshedProject);
+
+    const tableBody = document.getElementById("project-finished-xp-table-body");
+
+    tableBody.innerHTML = "";
+
+    for (let x = 0; x < finshedProject.length; x++) {
+        const project = finshedProject[x];
+
+        const row = document.createElement("tr");
+
+        const nameCell = document.createElement("td");
+        const projectXpCell = document.createElement("td");
+        // const startDateCell = document.createElement("td");
+        const finishDateCell = document.createElement("td");
+        
+        // const timeTakenCell = document.createElement("td");
+        nameCell.textContent = project.object.name;
+        projectXpCell.textContent = (project.amount / 1000)+"kB";
+        // startDateCell.textContent = formatDate(project.createdAt);
+        finishDateCell.textContent = formatDate(project.createdAt);
+
+        // const startDate = new Date(project.createdAt);
+        // const finishDate = new Date(project.updatedAt);
+        // const timeTaken = Math.ceil((finishDate - startDate) / (1000 * 60 * 60 * 24));
+        // timeTakenCell.textContent = `${timeTaken} days`;
+
+        row.appendChild(nameCell);
+        row.appendChild(projectXpCell);
+        // row.appendChild(startDateCell);
+        row.appendChild(finishDateCell);
+        // row.appendChild(timeTakenCell);
+
+        tableBody.appendChild(row);
+
+
+
+    }
+}
+
 function formatDate(isoString) {
     const date = new Date(isoString);
     const year = date.getFullYear();

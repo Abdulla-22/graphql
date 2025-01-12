@@ -30,7 +30,7 @@ This project demonstrates the use of **GraphQL** by creating a personal **profil
   - GraphQL API
   - JWT for authentication
 - **Hosting**:
-  - GitHub Pages
+  - The project was hosted using Netlify
 
 ## How It Works
 1. **Login**:
@@ -46,7 +46,9 @@ This project demonstrates the use of **GraphQL** by creating a personal **profil
    - Generate and display interactive graphs using SVG for statistical insights.
 
 ## Setup Instructions
-1. **Clone the Repository**:
-   ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+1. **Visit the following link:**:
+
+The project was deployed using Netlify. 
+https://graphql22.netlify.app
+
+
