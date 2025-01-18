@@ -16,7 +16,7 @@ header {
     display: flex;
     justify-content: space-between; /* Space between left and right sections */
     align-items: center; /* Vertically center items */
-    background-color: #290854d5;
+    background-color: #290854;
     color: white;
     padding: 15px; /* Consistent padding */
     /* border-bottom: 2px solid #290854e2; */
@@ -91,10 +91,12 @@ header {
 
 main{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     /* align-items: center; */
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
+    padding: 60px;
     border: 1px solid #ccc;
 }
 
@@ -126,24 +128,32 @@ p {
 }
 
 section {
-    background-color: #ffffffed;
+    background-color: #ffffffbf;
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
+    gap: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
+    /* width: 90%; */
+
+    flex: 1 1 calc(33.33% - 40px); /* Flexible width: 3 sections per row, with space for gaps */
+    max-width: 1000px; /* Limit the maximum width of a section */
+    /* min-width: 200px; */
 
     /* display: flex; */
     /* flex-wrap: wrap; */
     /* justify-content:center;
     justify-content:space-evenly; */
-    max-width: 1000px;
+    /* max-width: 1000px; */
     /* width: -moz-fit-content; */
     /* width:fit-content; */
-    height: auto;
+    /* height: auto; */
     /* background-color: #333; */
     
 }
+
+
+
 
 h2 {
     font-size: 24px;
@@ -160,32 +170,30 @@ h2 {
     height: auto;
     margin: 20px auto;
     padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    /* border: 1px solid #ccc; */
+    background-color: #ffffff00;
     border-radius: 5px;
     text-align: center;
 }
 
-/* svg {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-} */
-
 #AuditDown:hover {
-    stroke: #2b00ff59;
+    stroke: #a25aaf;
     stroke-width: 45;
     transition: all 0.3s ease;
 }
 
 #AuditUp:hover {
-    stroke: #4d843d84;
+    stroke: #e07bcc;
     stroke-width: 45;
     transition: all 0.3s ease;
 }
 
 rect:hover {
-    fill: orange;
+    fill: #c900a1;
+}
+rect {
+    fill: linear-gradient(90deg, #cb4ae2, #820798);
+    transition: all 0.5s ease;
 }
 
 .grid-line {
@@ -211,7 +219,7 @@ th, td {
 }
 
 th {
-    background-color: #007bff;
+    background-color: #820798;
     color: white;
     font-weight: bold;
 }
@@ -260,5 +268,33 @@ tr:hover {
     #graph-container {
         max-width: 100%;
         height: auto;
+    }
+
+    section {
+        flex: 1 1 calc(50% - 20px); /* 2 sections per row on smaller screens */
+    }
+}
+
+@media (max-width: 500px) {
+    section {
+        flex: 1 1 calc(100% - 20px); /* 1 section per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 8px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    section {
+        flex: 1 1 100%; /* 1 section per row on very small screens */
     }
 }

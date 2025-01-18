@@ -291,22 +291,6 @@
 
 
 
-
-    <script>
-        function showTooltip(evt, text) {
-            const tooltip = document.getElementById('tooltip');
-            const svgRect = evt.target.getBoundingClientRect();
-            tooltip.setAttribute('x', evt.clientX - svgRect.left + 10);
-            tooltip.setAttribute('y', evt.clientY - svgRect.top - 10);
-            tooltip.textContent = text;
-            tooltip.setAttribute('visibility', 'visible');
-        }
-
-        function hideTooltip() {
-            const tooltip = document.getElementById('tooltip');
-            tooltip.setAttribute('visibility', 'hidden');
-        }
-    </script>
 </body>
 
 </html>

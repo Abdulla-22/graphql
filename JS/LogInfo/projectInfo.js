@@ -121,7 +121,7 @@ export function exGain(data) {
         bar.setAttribute("y", y);
         bar.setAttribute("width", barWidth);
         bar.setAttribute("height", barHeight);
-        bar.setAttribute("fill", "steelblue");
+        bar.setAttribute("fill", "#820798");
         bar.innerHTML = `<title>${project.object.name} XP: ${project.amount / 1000}</title>`;
         chartGroup.appendChild(bar);
 
