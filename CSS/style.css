@@ -9,35 +9,48 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: url(wallpaperflare.com_wallpaper1.jpg);
+    background-image: url(QL1.png);
     background-size: cover;
     background-position: center;
     background-color: #6f3cbd7c;
 }
 
-#login-block{
+#login-block {
     max-width: 500px;
     width: 100%;
-    max-height: 500px;
-    height: 100%;
     background-color: #38135eaf;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 40px;
-    margin: 0;
     border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
 
+#welcome-section {
+    margin-bottom: 2rem;
 }
 
 #LoginText {
-    border: 40cm;
-    margin:auto;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+#welcome-message {
+    font-size: 1rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 2rem;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 input {
@@ -45,15 +58,27 @@ input {
     border: none;
     border-radius: 5px;
     margin-bottom: 20px;
-    box-shadow:rgba(0, 0, 0, 0.854);
-    
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-button{
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+button {
     padding: 10px;
-    background-color: rgba(44, 41, 41, 0.382);
-    margin-bottom: 20px;
-    box-shadow:rgba(0, 0, 0, 0.854);
+    background-color: rgba(0, 0, 0, 0.382);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
     transition: all 0.5s;
+    box-shadow: 0 2px 5px rgb(0, 0, 0);
 }
 
 button:hover {
@@ -69,16 +94,15 @@ button:hover {
     border-radius: 5px;
     display: none;
     z-index: 1000;
-
 }
 
 #notification.success {
-    background-color: #4caf50; 
+    background-color: #4caf50;
     color: white;
 }
 
 #notification.error {
-    background-color: #f44336; 
+    background-color: #f44336;
     color: white;
 }
 

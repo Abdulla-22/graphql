@@ -1,96 +1,3 @@
-export function logUserInfo(data) {
-    // after testing the query I foun that it retarn and aray of the login user only (one user)
-    const user = data.data.user[0];
-    if (user) {
-        document.getElementById("welcomeName").innerText +=
-            "Welcome, " + user.firstName + " " + user.lastName + "!";
-        document.getElementById("FullName").innerText += " " + user.firstName + " " + user.lastName;
-        document.getElementById("Username").innerText += " " + user.login;
-        // document.getElementById("UserID").innerText += (" " + user.id);
-        document.getElementById("Campus").innerText += (" " + user.campus.charAt(0).toUpperCase() + user.campus.slice(1));
-        document.getElementById("userEmail").innerText += (" " + user.email);
-        // document.getElementById("githubId").innerText += (" " + user.githubId);
-        document.getElementById("userLevel").innerText += (" " + user.transactions[0].amount);
-
-        if (user.transactions[0].amount < 0 && user.transactions[0].amount < 10) {
-            document.getElementById("userRank").innerText += (" Aspiring developer");
-
-        } else if (user.transactions[0].amount >= 10 && user.transactions[0].amount < 20) {
-            document.getElementById("userRank").innerText += (" Beginner developer");
-
-        } else if (user.transactions[0].amount >= 20 && user.transactions[0].amount < 30) {
-            document.getElementById("userRank").innerText += (" Apprentice developer");
-
-        } else if (user.transactions[0].amount >= 30 && user.transactions[0].amount < 40) {
-            document.getElementById("userRank").innerText += (" Assistant developer");
-
-        } else if (user.transactions[0].amount >= 40 && user.transactions[0].amount < 50) {
-            document.getElementById("userRank").innerText += (" Basic developer");
-
-        } else if (user.transactions[0].amount >= 50 && user.transactions[0].amount < 55) {
-            document.getElementById("userRank").innerText += (" Junior developer");
-
-        } else if (user.transactions[0].amount >= 55 && user.transactions[0].amount < 60) {
-            document.getElementById("userRank").innerText += (" Confirmed developer");
-
-        } else if (user.transactions[0].amount >= 60) {
-            document.getElementById("userRank").innerText += (" Full-Stack developer");
-
-        }
-
-    } else {
-        console.error("User data not found.");
-        alert("User information is unavailable. Please log in again.");
-        // logout();
-    }
-
-}
-
-export function logTransactionInfo(data) {
-    const transactions = data.data.transaction;
-    console.log("Transactions: ", transactions);
-
-    if (transactions && transactions.length > 0) {
-        const totalXP = transactions.reduce((sum, tx) => sum + tx.amount, 0);
-
-        console.log("Total XP Amount:", totalXP);
-
-        document.getElementById("totalXP").innerText = `Total XP: ${totalXP}`;
-    } else {
-        console.log("No XP transactions found.");
-        document.getElementById("totalXP").innerText = "Total XP: 0";
-    }
-}
-
-export function auditRatio(data) {
-    var auditRatio = data.data.user[0].auditRatio.toFixed(1);
-    var totalUP = data.data.user[0].totalUp;
-    var totalDown = data.data.user[0].totalDown;
-    var totalAudit = totalUP + totalDown;
-
-    var perUpBar = (totalUP / totalAudit) * 100;
-    var perDownBar = (totalDown / totalAudit) * 100;
-
-    // document.getElementById("upXp").setAttribute("x", perUpBar);
-    // document.getElementById("upXp").setAttribute("width", perUpBar);
-    // document.getElementById("downXp").setAttribute("x", perUpBar);
-    // document.getElementById("downXp").setAttribute("width", perDownBar);
-
-
-    var perUp = (totalUP / totalAudit) * 628;
-    var perDown = (totalDown / totalAudit) * 628;
-
-    document.getElementById("AuditUp").setAttribute("stroke-dasharray", `${perUp} ${(628 - perUp)}`);
-    document.getElementById("AuditDown").setAttribute("stroke-dasharray", `${perDown} ${(628 - perDown)}`);
-    document.getElementById("AuditDown").setAttribute("stroke-dashoffset", (628 - perUp));
-
-    document.getElementById("ratioNumber").innerHTML = auditRatio;
-    document.getElementById("auditRatioNumber").innerHTML = "Audit Ratio: " + auditRatio;
-    document.getElementById("auditRatioUP").innerHTML = "Audit up: " + perUpBar.toFixed(2) + "%";
-    document.getElementById("auditRatioDOWN").innerHTML = "Audit down: " + perDownBar.toFixed(2) + "%";
-
-}
-
 export function toFinshProject(data) {
     var toFinshProject = data.data.user[0].NotFinshProjects;
 
@@ -108,6 +15,7 @@ export function toFinshProject(data) {
     }
 }
 
+//FIXME: not used
 export function finshedProject(data) {
     var finshedProject = data.data.user[0].FinshProjects;
     // console.log("Finished Projects: ", finshedProject);
@@ -141,61 +49,7 @@ export function finshedProject(data) {
         row.appendChild(timeTakenCell);
 
         tableBody.appendChild(row);
-
-
-
     }
-}
-
-export function finshedProjectXp(data) {
-    var finshedProject = data.data.user[0].projectEx;
-    // console.log("Finished Projects: ", finshedProject);
-    console.log("Finished Projects: ", finshedProject);
-
-    const tableBody = document.getElementById("project-finished-xp-table-body");
-
-    tableBody.innerHTML = "";
-
-    for (let x = 0; x < finshedProject.length; x++) {
-        const project = finshedProject[x];
-
-        const row = document.createElement("tr");
-
-        const nameCell = document.createElement("td");
-        const projectXpCell = document.createElement("td");
-        // const startDateCell = document.createElement("td");
-        const finishDateCell = document.createElement("td");
-        
-        // const timeTakenCell = document.createElement("td");
-        nameCell.textContent = project.object.name;
-        projectXpCell.textContent = (project.amount / 1000)+"kB";
-        // startDateCell.textContent = formatDate(project.createdAt);
-        finishDateCell.textContent = formatDate(project.createdAt);
-
-        // const startDate = new Date(project.createdAt);
-        // const finishDate = new Date(project.updatedAt);
-        // const timeTaken = Math.ceil((finishDate - startDate) / (1000 * 60 * 60 * 24));
-        // timeTakenCell.textContent = `${timeTaken} days`;
-
-        row.appendChild(nameCell);
-        row.appendChild(projectXpCell);
-        // row.appendChild(startDateCell);
-        row.appendChild(finishDateCell);
-        // row.appendChild(timeTakenCell);
-
-        tableBody.appendChild(row);
-
-
-
-    }
-}
-
-function formatDate(isoString) {
-    const date = new Date(isoString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
 }
 
 export function exGain(data) {
@@ -344,3 +198,54 @@ function drawAxes(chartGroup, width, height, startDate, finishDate, maxAmount) {
     }
 }
 
+
+export function finshedProjectXp(data) {
+    var finshedProject = data.data.user[0].projectEx;
+    // console.log("Finished Projects: ", finshedProject);
+    // console.log("Finished Projects: ", finshedProject);
+
+    const tableBody = document.getElementById("project-finished-xp-table-body");
+
+    tableBody.innerHTML = "";
+
+    for (let x = 0; x < finshedProject.length; x++) {
+        const project = finshedProject[x];
+
+        const row = document.createElement("tr");
+
+        const nameCell = document.createElement("td");
+        const projectXpCell = document.createElement("td");
+        // const startDateCell = document.createElement("td");
+        const finishDateCell = document.createElement("td");
+
+        // const timeTakenCell = document.createElement("td");
+        nameCell.textContent = project.object.name;
+        projectXpCell.textContent = (project.amount / 1000) + "kB";
+        // startDateCell.textContent = formatDate(project.createdAt);
+        finishDateCell.textContent = formatDate(project.createdAt);
+
+        // const startDate = new Date(project.createdAt);
+        // const finishDate = new Date(project.updatedAt);
+        // const timeTaken = Math.ceil((finishDate - startDate) / (1000 * 60 * 60 * 24));
+        // timeTakenCell.textContent = `${timeTaken} days`;
+
+        row.appendChild(nameCell);
+        row.appendChild(projectXpCell);
+        // row.appendChild(startDateCell);
+        row.appendChild(finishDateCell);
+        // row.appendChild(timeTakenCell);
+
+        tableBody.appendChild(row);
+
+
+
+    }
+}
+
+function formatDate(isoString) {
+    const date = new Date(isoString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}

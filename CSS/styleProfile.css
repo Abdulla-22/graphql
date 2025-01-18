@@ -5,7 +5,7 @@ body {
     font-weight: 400;
     background-color: #f1f1f1;
     line-height: 1.6;
-    background-image: url(wallpaperflare.com_wallpaper1.jpg);
+    background-image: url(QL1.png);
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;
@@ -13,13 +13,89 @@ body {
 }
 
 header {
-    background-color: #290854e2;
+    display: flex;
+    justify-content: space-between; /* Space between left and right sections */
+    align-items: center; /* Vertically center items */
+    background-color: #290854d5;
     color: white;
-    padding: 20px;
-    text-align: center;
-    /* font-size: 35px;
-    font-weight: 700; */
-    border-bottom: 2px solid #290854e2;
+    padding: 15px; /* Consistent padding */
+    /* border-bottom: 2px solid #290854e2; */
+    
+}
+
+#left-section {
+    display: flex;
+    align-items: center; /* Align logo and welcome message horizontally */
+    gap: 20px; /* Space between logo and welcome message */
+}
+
+#svgLogo {
+    height: auto;
+    width: 130px; /* Adjust logo size */
+}
+
+#welcomeName {
+    font-size: 1.5rem; /* Adjust welcome message size */
+    margin: 0; /* Remove default margin */
+}
+
+#logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    transition: all 0.3s ease;
+    gap: 8px;
+}
+
+#logout:hover {
+    background-color: #a01f1f;
+}
+
+#check_out {
+    height: 20px;
+    width: 20px;
+}
+
+@media (max-width: 600px) {
+    #logout {
+        width: auto;
+        padding: 5px;
+        gap: 5px;
+    }
+
+    #check_out {
+        height: 16px;
+        width: 16px;
+    }
+
+    #welcomeName {
+        font-size: 1.2rem; /* Adjust welcome message size for smaller screens */
+    }
+}
+
+@media (max-width: 700px) {
+    #welcomeName {
+        font-size: 1rem; /* Further adjust welcome message size for smaller screens */
+    }
+}
+
+
+
+main{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid #ccc;
 }
 
 #user-info {
@@ -65,6 +141,7 @@ section {
     /* width: -moz-fit-content; */
     /* width:fit-content; */
     height: auto;
+    /* background-color: #333; */
     
 }
 
@@ -89,11 +166,11 @@ h2 {
     text-align: center;
 }
 
-svg {
+/* svg {
     width: 100%;
     height: auto;
     max-height: 400px;
-}
+} */
 
 #AuditDown:hover {
     stroke: #2b00ff59;
@@ -168,7 +245,7 @@ tr:hover {
 
 @media (max-width: 768px) {
     header {
-        font-size: 28px;
+        font-size: 10px;
         padding: 15px;
     }
 
