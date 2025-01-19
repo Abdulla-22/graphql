@@ -7,9 +7,11 @@ import { auditRatio } from './LogInfo/auditInfo.js';
     extractInfo().then(data => {
         logUserInfo(data);
         skills(data);
+        
         toFinshProject(data);
-        exGain(data);
         auditRatio(data);
+        exGain(data);
+        
         finshedProjectXp(data);
     })
     .catch(error => {

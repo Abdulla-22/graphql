@@ -106,7 +106,8 @@ main{
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 20px auto; */
-    max-width: 800px;
+    /* max-width: 800px; */
+    /* width: 100%; */
     display: flex;
     justify-content: space-between; 
     align-items: center;
@@ -152,7 +153,26 @@ section {
     
 }
 
+#project-to-finsh{
+    /* width: 100%; */
+    /* height: 100%; */
+}
 
+#graph-containerAudit {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0px auto;
+    padding: 10px;
+    /* border: 1px solid #ccc; */
+    background-color: #ffffff00;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#projects-by-time {
+    height: 100%;
+}
 
 
 h2 {
@@ -251,6 +271,8 @@ tr:hover {
     color: #333;
 }
 
+
+
 @media (max-width: 768px) {
     header {
         font-size: 10px;
@@ -281,20 +303,87 @@ tr:hover {
     }
 }
 
+/* General Adjustments for Phones */
 @media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Adjust global font size for better readability */
+    }
+
     header {
-        font-size: 8px;
+        flex-direction: column; /* Stack header items vertically */
+        text-align: center;
+        padding: 10px;
     }
 
-    h2 {
-        font-size: 18px;
+    #left-section {
+        flex-direction: column; /* Stack logo and welcome message */
+        gap: 10px; /* Adjust spacing */
     }
 
-    table {
-        font-size: 12px;
+    #svgLogo {
+        width: 100px; /* Reduce logo size */
+    }
+
+    #welcomeName {
+        font-size: 1rem; /* Smaller welcome message font size */
+    }
+
+    #logout {
+        width: 100%; /* Full width for the logout button */
+        padding: 8px;
+        gap: 5px;
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 10px; /* Reduce padding */
+        flex-direction: column; /* Stack sections vertically */
+        gap: 15px; /* Smaller gaps between sections */
     }
 
     section {
-        flex: 1 1 100%; /* 1 section per row on very small screens */
+        flex: 1 1 100%; /* Full width for sections */
+        margin: 10px auto; /* Adjust margin for centered layout */
+        padding: 15px; /* Reduce padding inside sections */
+    }
+
+    h2 {
+        font-size: 18px; /* Smaller headings */
+        margin-bottom: 15px; /* Adjust spacing below headings */
+    }
+
+    p {
+        font-size: 14px; /* Adjust paragraph text size */
+    }
+
+    #graph-container,
+    #graph-containerAudit {
+        max-width: 300px; /* Reduce graph container size */
+        margin: 10px auto; /* Center graph */
+    }
+
+    svg {
+        width: 100%; 
+        height: auto;
+    }
+
+    table {
+        font-size: 12px; /* Smaller font size for table content */
+        margin: 10px auto; /* Adjust table margin */
+        width: 100%; /* Ensure table fits the screen */
+    }
+
+    th, td {
+        padding: 8px; /* Reduce padding for table cells */
+    }
+
+    #key-map {
+        flex-direction: column; /* Stack key map items */
+        gap: 10px;
+    }
+
+    #key-map div {
+        justify-content: center; /* Center-align key map items */
     }
 }
+
