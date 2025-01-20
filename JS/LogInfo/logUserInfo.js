@@ -6,10 +6,8 @@ export function logUserInfo(data) {
             "Welcome, " + user.firstName + " " + user.lastName + "!";
         document.getElementById("FullName").innerText += " " + user.firstName + " " + user.lastName;
         document.getElementById("Username").innerText += " " + user.login;
-        // document.getElementById("UserID").innerText += (" " + user.id);
         document.getElementById("Campus").innerText += (" " + user.campus.charAt(0).toUpperCase() + user.campus.slice(1));
         document.getElementById("userEmail").innerText += (" " + user.email);
-        // document.getElementById("githubId").innerText += (" " + user.githubId);
         document.getElementById("userLevel").innerText += (" " + user.transactions[0].amount);
 
         if (user.transactions[0].amount < 0 && user.transactions[0].amount < 10) {

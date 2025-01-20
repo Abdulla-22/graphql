@@ -14,29 +14,28 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between; /* Space between left and right sections */
-    align-items: center; /* Vertically center items */
+    justify-content: space-between;
+    align-items: center; 
     background-color: #290854;
     color: white;
-    padding: 15px; /* Consistent padding */
-    /* border-bottom: 2px solid #290854e2; */
+    padding: 15px; 
     
 }
 
 #left-section {
     display: flex;
-    align-items: center; /* Align logo and welcome message horizontally */
-    gap: 20px; /* Space between logo and welcome message */
+    align-items: center;
+    gap: 20px;
 }
 
 #svgLogo {
     height: auto;
-    width: 130px; /* Adjust logo size */
+    width: 130px; 
 }
 
 #welcomeName {
-    font-size: 1.5rem; /* Adjust welcome message size */
-    margin: 0; /* Remove default margin */
+    font-size: 1.5rem;
+    margin: 0; 
 }
 
 #logout {
@@ -77,13 +76,13 @@ header {
     }
 
     #welcomeName {
-        font-size: 1.2rem; /* Adjust welcome message size for smaller screens */
+        font-size: 1.2rem; 
     }
 }
 
 @media (max-width: 700px) {
     #welcomeName {
-        font-size: 1rem; /* Further adjust welcome message size for smaller screens */
+        font-size: 1rem; 
     }
 }
 
@@ -93,7 +92,6 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* align-items: center; */
     flex-wrap: wrap;
     gap: 20px;
     padding: 60px;
@@ -101,27 +99,10 @@ main{
 }
 
 #user-info {
-    /* padding: 20px;
-    background-color: #823f3f;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 20px auto; */
-    /* max-width: 800px; */
-    /* width: 100%; */
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: space-between;  */
+    /* align-items: center; */
 }
-/* 
-.user-info-container {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-} */
-
-/* .user-details {
-    flex: 3; 
-} */
 
 p {
     margin: 10px 0;
@@ -130,26 +111,12 @@ p {
 
 section {
     background-color: #ffffffbf;
-    margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
     gap: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* width: 90%; */
-
-    flex: 1 1 calc(33.33% - 40px); /* Flexible width: 3 sections per row, with space for gaps */
-    max-width: 1000px; /* Limit the maximum width of a section */
-    /* min-width: 200px; */
-
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* justify-content:center;
-    justify-content:space-evenly; */
-    /* max-width: 1000px; */
-    /* width: -moz-fit-content; */
-    /* width:fit-content; */
-    /* height: auto; */
-    /* background-color: #333; */
+    flex: 1 1 calc(33.33% - 40px); 
+    max-width: 1000px; 
     
 }
 
@@ -164,7 +131,6 @@ section {
     height: auto;
     margin: 0px auto;
     padding: 10px;
-    /* border: 1px solid #ccc; */
     background-color: #ffffff00;
     border-radius: 5px;
     text-align: center;
@@ -190,7 +156,6 @@ h2 {
     height: auto;
     margin: 20px auto;
     padding: 10px;
-    /* border: 1px solid #ccc; */
     background-color: #ffffff00;
     border-radius: 5px;
     text-align: center;
@@ -271,8 +236,6 @@ tr:hover {
     color: #333;
 }
 
-
-
 @media (max-width: 768px) {
     header {
         font-size: 10px;
@@ -293,74 +256,69 @@ tr:hover {
     }
 
     section {
-        flex: 1 1 calc(50% - 20px); /* 2 sections per row on smaller screens */
+        flex: 1 1 calc(50% - 20px); 
     }
 }
 
-@media (max-width: 500px) {
-    section {
-        flex: 1 1 calc(100% - 20px); /* 1 section per row on smaller screens */
-    }
-}
-
-/* General Adjustments for Phones */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     body {
-        font-size: 14px; /* Adjust global font size for better readability */
+        font-size: 14px; 
     }
 
     header {
-        flex-direction: column; /* Stack header items vertically */
+        flex-direction: column; 
         text-align: center;
         padding: 10px;
     }
 
     #left-section {
-        flex-direction: column; /* Stack logo and welcome message */
-        gap: 10px; /* Adjust spacing */
+        flex-direction: column;
+        gap: 10px; 
     }
 
     #svgLogo {
-        width: 100px; /* Reduce logo size */
+        width: 100px; 
     }
 
     #welcomeName {
-        font-size: 1rem; /* Smaller welcome message font size */
+        font-size: 1rem; 
     }
 
     #logout {
-        width: 100%; /* Full width for the logout button */
+        width: 100%; 
         padding: 8px;
         gap: 5px;
         font-size: 0.9rem;
     }
 
     main {
-        padding: 10px; /* Reduce padding */
-        flex-direction: column; /* Stack sections vertically */
-        gap: 15px; /* Smaller gaps between sections */
+        padding: 10px; 
+        flex-direction: column; 
+        gap: 15px; 
     }
 
     section {
-        flex: 1 1 100%; /* Full width for sections */
-        margin: 10px auto; /* Adjust margin for centered layout */
-        padding: 15px; /* Reduce padding inside sections */
+        flex: 1 1 100%; 
+        margin: 10px auto; 
+        padding: 15px; 
     }
 
     h2 {
-        font-size: 18px; /* Smaller headings */
-        margin-bottom: 15px; /* Adjust spacing below headings */
+        font-size: 18px; 
+        margin-bottom: 15px;
     }
 
     p {
-        font-size: 14px; /* Adjust paragraph text size */
+        font-size: 14px; 
     }
 
     #graph-container,
     #graph-containerAudit {
-        max-width: 300px; /* Reduce graph container size */
-        margin: 10px auto; /* Center graph */
+        max-width: 300px;
+        margin: 10px auto; 
     }
+
+    
 
     svg {
         width: 100%; 
@@ -368,22 +326,22 @@ tr:hover {
     }
 
     table {
-        font-size: 12px; /* Smaller font size for table content */
-        margin: 10px auto; /* Adjust table margin */
-        width: 100%; /* Ensure table fits the screen */
+        font-size: 12px; 
+        margin: 10px auto;
+        width: 100%; 
     }
 
     th, td {
-        padding: 8px; /* Reduce padding for table cells */
+        padding: 8px; 
     }
 
     #key-map {
-        flex-direction: column; /* Stack key map items */
+        flex-direction: column;
         gap: 10px;
     }
 
     #key-map div {
-        justify-content: center; /* Center-align key map items */
+        justify-content: center; 
     }
 }
 

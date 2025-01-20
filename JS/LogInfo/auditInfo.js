@@ -7,12 +7,6 @@ export function auditRatio(data) {
     var perUpBar = (totalUP / totalAudit) * 100;
     var perDownBar = (totalDown / totalAudit) * 100;
 
-    // document.getElementById("upXp").setAttribute("x", perUpBar);
-    // document.getElementById("upXp").setAttribute("width", perUpBar);
-    // document.getElementById("downXp").setAttribute("x", perUpBar);
-    // document.getElementById("downXp").setAttribute("width", perDownBar);
-
-
     var perUp = (totalUP / totalAudit) * 628;
     var perDown = (totalDown / totalAudit) * 628;
 

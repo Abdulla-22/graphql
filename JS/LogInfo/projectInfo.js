@@ -15,43 +15,6 @@ export function toFinshProject(data) {
     }
 }
 
-//FIXME: not used
-export function finshedProject(data) {
-    var finshedProject = data.data.user[0].FinshProjects;
-    // console.log("Finished Projects: ", finshedProject);
-
-    const tableBody = document.getElementById("project-finished-table-body");
-
-    tableBody.innerHTML = "";
-
-    for (let x = 0; x < finshedProject.length; x++) {
-        const project = finshedProject[x];
-
-        const row = document.createElement("tr");
-
-        const nameCell = document.createElement("td");
-        const startDateCell = document.createElement("td");
-        const finishDateCell = document.createElement("td");
-        const timeTakenCell = document.createElement("td");
-
-        nameCell.textContent = project.object.name;
-        startDateCell.textContent = formatDate(project.createdAt);
-        finishDateCell.textContent = formatDate(project.updatedAt);
-
-        const startDate = new Date(project.createdAt);
-        const finishDate = new Date(project.updatedAt);
-        const timeTaken = Math.ceil((finishDate - startDate) / (1000 * 60 * 60 * 24));
-        timeTakenCell.textContent = `${timeTaken} days`;
-
-        row.appendChild(nameCell);
-        row.appendChild(startDateCell);
-        row.appendChild(finishDateCell);
-        row.appendChild(timeTakenCell);
-
-        tableBody.appendChild(row);
-    }
-}
-
 export function exGain(data) {
     const projectsData = data.data.user[0]?.projectEx || [];
 
@@ -68,51 +31,36 @@ export function exGain(data) {
         return;
     }
 
-    // Find the maximum amount for scaling
     const maxAmount = Math.max(...projectsData.map(project => project.amount));
 
-    // SVG container dimensions
     const svgWidth = 400;
     const svgHeight = 300;
     const margin = { top: 20, right: 20, bottom: 40, left: 50 };
     const width = svgWidth - margin.left - margin.right;
     const height = svgHeight - margin.top - margin.bottom;
 
-    // Calculate scales
-    const xScale = (date) => {
-        return (
-            ((new Date(date) - startDate) / (finishDate - startDate)) * width
-        );
-    };
-
     const yScale = (amount) => {
         return height - (amount / maxAmount) * height;
     };
 
-    // Bar and spacing
     const totalBars = projectsData.length;
-    const barSpacing = 2; // Space between bars
-    const barWidth = Math.max((width - barSpacing * (totalBars - 1)) / totalBars, 5); // Ensure a minimum width of 5
+    const barSpacing = 2; 
+    const barWidth = Math.max((width - barSpacing * (totalBars - 1)) / totalBars, 5); 
 
-    // Get SVG element
     const svg = document.querySelector("#graph-container svg");
     svg.setAttribute("width", svgWidth);
     svg.setAttribute("height", svgHeight);
 
-    // Clear previous content
     svg.innerHTML = "";
 
-    // Create chart group
     const chartGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
     chartGroup.setAttribute("transform", `translate(${margin.left}, ${margin.top})`);
     svg.appendChild(chartGroup);
 
-    // Draw axes
     drawAxes(chartGroup, width, height, startDate, finishDate, maxAmount);
 
-    // Draw bars
     projectsData.forEach((project, index) => {
-        const x = index * (barWidth + barSpacing); // Increment x position with spacing
+        const x = index * (barWidth + barSpacing); 
         const y = yScale(project.amount);
         const barHeight = height - y;
 
@@ -125,19 +73,16 @@ export function exGain(data) {
         bar.innerHTML = `<title>${project.object.name} XP: ${project.amount / 1000}</title>`;
         chartGroup.appendChild(bar);
 
-        // Add label above each bar
         const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
         label.setAttribute("x", x + barWidth / 2);
         label.setAttribute("y", y - 5);
         label.setAttribute("text-anchor", "middle");
         label.setAttribute("fill", "black");
-        // label.textContent = (project.amount / 1000).toFixed(1) + "k"; // Display amount in 'k'
         chartGroup.appendChild(label);
     });
 }
 
 function drawAxes(chartGroup, width, height, startDate, finishDate, maxAmount) {
-    // X-axis
     const xAxis = document.createElementNS("http://www.w3.org/2000/svg", "line");
     xAxis.setAttribute("x1", 0);
     xAxis.setAttribute("y1", height);
@@ -146,24 +91,21 @@ function drawAxes(chartGroup, width, height, startDate, finishDate, maxAmount) {
     xAxis.setAttribute("stroke", "black");
     chartGroup.appendChild(xAxis);
 
-    // Calculate 5 evenly spaced dates
     const timeDiff = finishDate.getTime() - startDate.getTime();
-    const step = timeDiff / 4; // Divide into 4 intervals for 5 points
+    const step = timeDiff / 4; 
     const dates = Array.from({ length: 5 }, (_, i) => new Date(startDate.getTime() + i * step));
 
-    // Add date labels to X-axis
     dates.forEach((date, index) => {
-        const position = (index / 4) * width; // Evenly distribute across the width
+        const position = (index / 4) * width; 
         const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
         label.setAttribute("x", position);
-        label.setAttribute("y", height + 20); // Position below the x-axis
+        label.setAttribute("y", height + 20); 
         label.setAttribute("text-anchor", "middle");
         label.setAttribute("font-size", "10px");
-        label.textContent = date.toLocaleDateString(); // Format date
+        label.textContent = date.toLocaleDateString(); 
         chartGroup.appendChild(label);
     });
 
-    // Y-axis
     const yAxis = document.createElementNS("http://www.w3.org/2000/svg", "line");
     yAxis.setAttribute("x1", 0);
     yAxis.setAttribute("y1", 0);
@@ -172,13 +114,11 @@ function drawAxes(chartGroup, width, height, startDate, finishDate, maxAmount) {
     yAxis.setAttribute("stroke", "black");
     chartGroup.appendChild(yAxis);
 
-    // Y-axis labels
-    const yTicks = 5; // Number of ticks on Y-axis
+    const yTicks = 5; 
     for (let i = 0; i <= yTicks; i++) {
         const value = (maxAmount / yTicks) * i;
         const y = height - (value / maxAmount) * height;
 
-        // Draw tick
         const tick = document.createElementNS("http://www.w3.org/2000/svg", "line");
         tick.setAttribute("x1", -5);
         tick.setAttribute("y1", y);
@@ -187,13 +127,12 @@ function drawAxes(chartGroup, width, height, startDate, finishDate, maxAmount) {
         tick.setAttribute("stroke", "black");
         chartGroup.appendChild(tick);
 
-        // Add label
         const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
         label.setAttribute("x", -10);
         label.setAttribute("y", y + 3);
         label.setAttribute("text-anchor", "end");
         label.setAttribute("font-size", "10px");
-        label.textContent = (value / 1000).toFixed(1) + "k"; // Display amount in 'k'
+        label.textContent = (value / 1000).toFixed(1) + "k";
         chartGroup.appendChild(label);
     }
 }
@@ -201,8 +140,7 @@ function drawAxes(chartGroup, width, height, startDate, finishDate, maxAmount) {
 
 export function finshedProjectXp(data) {
     var finshedProject = data.data.user[0].projectEx;
-    // console.log("Finished Projects: ", finshedProject);
-    // console.log("Finished Projects: ", finshedProject);
+
 
     const tableBody = document.getElementById("project-finished-xp-table-body");
 
@@ -215,25 +153,16 @@ export function finshedProjectXp(data) {
 
         const nameCell = document.createElement("td");
         const projectXpCell = document.createElement("td");
-        // const startDateCell = document.createElement("td");
         const finishDateCell = document.createElement("td");
 
-        // const timeTakenCell = document.createElement("td");
         nameCell.textContent = project.object.name;
         projectXpCell.textContent = (project.amount / 1000) + "kB";
-        // startDateCell.textContent = formatDate(project.createdAt);
         finishDateCell.textContent = formatDate(project.createdAt);
 
-        // const startDate = new Date(project.createdAt);
-        // const finishDate = new Date(project.updatedAt);
-        // const timeTaken = Math.ceil((finishDate - startDate) / (1000 * 60 * 60 * 24));
-        // timeTakenCell.textContent = `${timeTaken} days`;
 
         row.appendChild(nameCell);
         row.appendChild(projectXpCell);
-        // row.appendChild(startDateCell);
         row.appendChild(finishDateCell);
-        // row.appendChild(timeTakenCell);
 
         tableBody.appendChild(row);
 

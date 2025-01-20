@@ -12,6 +12,7 @@ export function skills(data) {
         acc[type].skills.push(skill);
         return acc;
     }, {});
+    // console.log("Sum by Type: ", sumByType);
 
     const top6Types = Object.entries(sumByType)
         .map(([type, data]) => ({ type, totalAmount: data.totalAmount, skills: data.skills }))
@@ -28,22 +29,20 @@ export function skills(data) {
     console.log("Labels: ", labels);
     console.log("Data Points: ", dataPointsarr);
 
-    const chartWidth = 500; 
-    const chartHeight = 400; 
     const barHeight = 40; 
     const barSpacing = 20; 
     const labelWidth = 100;
-    const valueWidth = 50; 
-    const maxBarWidth = chartWidth - labelWidth - valueWidth - 20;
+    const valueWidth = 50;
 
     const maxValue = Math.max(...dataPointsarr);
 
     const svg = document.getElementById("bar-chart");
-    svg.setAttribute("width", chartWidth);
-    svg.setAttribute("height", (barHeight + barSpacing) * labels.length);
+    svg.setAttribute("viewBox", `0 0 600 ${(barHeight + barSpacing) * labels.length}`);
+    svg.setAttribute("preserveAspectRatio", "xMinYMin meet");
+    svg.innerHTML = ""; 
 
     labels.forEach((label, i) => {
-        const barWidth = (dataPointsarr[i] / maxValue) * maxBarWidth;
+        const barWidth = (dataPointsarr[i] / maxValue) * (600 - labelWidth - valueWidth - 20);
         const y = i * (barHeight + barSpacing); 
 
         const labelText = document.createElementNS("http://www.w3.org/2000/svg", "text");
@@ -60,6 +59,7 @@ export function skills(data) {
         bar.setAttribute("width", barWidth);
         bar.setAttribute("height", barHeight);
         bar.setAttribute("fill", "#820798");
+        bar.innerHTML = `<title>${label} XP: ${dataPointsarr[i]}</title>`;
         svg.appendChild(bar);
 
         const valueText = document.createElementNS("http://www.w3.org/2000/svg", "text");
@@ -70,5 +70,4 @@ export function skills(data) {
         valueText.setAttribute("fill", "#333");
         svg.appendChild(valueText);
     });
-
 }
