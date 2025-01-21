@@ -141,7 +141,6 @@ function drawAxes(chartGroup, width, height, startDate, finishDate, maxAmount) {
 export function finshedProjectXp(data) {
     var finshedProject = data.data.user[0].projectEx;
 
-
     const tableBody = document.getElementById("project-finished-xp-table-body");
 
     tableBody.innerHTML = "";
@@ -154,15 +153,28 @@ export function finshedProjectXp(data) {
         const nameCell = document.createElement("td");
         const projectXpCell = document.createElement("td");
         const finishDateCell = document.createElement("td");
+        const projectLink = document.createElement("td");
+        const repoLink = document.createElement("td");
 
         nameCell.textContent = project.object.name;
         projectXpCell.textContent = (project.amount / 1000) + "kB";
         finishDateCell.textContent = formatDate(project.createdAt);
 
+        if (project.object.type === "project") {
+            projectLink.innerHTML = `<a href="https://learn.reboot01.com/intra${project.path}" target="_blank">Project</a>`;
+            repoLink.innerHTML = `<a href="https://learn.reboot01.com/git/${project.userLogin}/${project.object.name}" target="_blank">Repo</a>`;
+        
+        } else if (project.object.type === "exercise") {
+            projectLink.innerHTML = `-`;
+            repoLink.innerHTML = `-`;
+
+        }
 
         row.appendChild(nameCell);
         row.appendChild(projectXpCell);
         row.appendChild(finishDateCell);
+        row.appendChild(projectLink);
+        row.appendChild(repoLink);
 
         tableBody.appendChild(row);
 

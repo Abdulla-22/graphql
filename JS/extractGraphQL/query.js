@@ -78,6 +78,7 @@ user {
         where: {_and: [{path: {_regex: "^/([^/]+/){2,3}[^/]+$"}}, {type: {_eq: "xp"}}, {progress: {isDone: {_eq: true}}}, {path: {_nlike: "/bahrain/bh-module/piscine-js"}}, {path: {_nlike: "/bahrain/bh-module/piscine-rust"}}], _or: [{path: {_ilike: "/bahrain/bh-module/checkpoint/%"}}, {path: {_ilike: "%/bahrain/bh-module/%"}}]}
     ) {
         id
+        userLogin
         type
         amount
         path
