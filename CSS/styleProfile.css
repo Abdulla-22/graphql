@@ -63,23 +63,6 @@ header {
     width: 20px;
 }
 
-@media (max-width: 600px) {
-    #logout {
-        width: auto;
-        padding: 5px;
-        gap: 5px;
-    }
-
-    #check_out {
-        height: 16px;
-        width: 16px;
-    }
-
-    #welcomeName {
-        font-size: 1.2rem; 
-    }
-}
-
 @media (max-width: 700px) {
     #welcomeName {
         font-size: 1rem; 
@@ -261,6 +244,11 @@ tr:hover {
 }
 
 @media (max-width: 600px) {
+    #check_out {
+        height: 16px;
+        width: 16px;
+    }
+
     body {
         font-size: 14px; 
     }
@@ -301,6 +289,7 @@ tr:hover {
         flex: 1 1 100%; 
         margin: 10px auto; 
         padding: 15px; 
+        width: 90%;
     }
 
     h2 {
