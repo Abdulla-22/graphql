@@ -54,6 +54,10 @@ header {
     gap: 8px;
 }
 
+#text-logout {
+    color: black;
+}
+
 #logout:hover {
     background-color: #a01f1f;
 }
