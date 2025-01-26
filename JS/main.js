@@ -4,6 +4,7 @@ import { skills } from './LogInfo/logSkills.js';
 import { finshedProjectXp, toFinshProject, exGain } from './LogInfo/projectInfo.js';
 import { auditRatio } from './LogInfo/auditInfo.js';
 
+// Test
     extractInfo().then(data => {
         logUserInfo(data);
         skills(data);
